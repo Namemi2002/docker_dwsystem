@@ -1,0 +1,46 @@
+services:
+  warehouse:
+    build:
+      context: ./warehouse
+    image: warehouse
+    container_name: warehouse_container
+    restart: unless-stopped # Make this container to start whenever Docker starts
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_HOSTMACHINE_PORT}:3306"
+    volumes:
+      - warehouse_data:/var/lib/mysql # Make database to mount on a named volume 'warehouse_data'
+    networks:
+      - warehousesystem_network
+    healthcheck:
+      # Health check to see whether all tables have been initialized successfully
+      test:
+        [
+          "CMD-SHELL",
+          "mysql -uroot -p$${MYSQL_ROOT_PASSWORD} -e \"SELECT * FROM mydudw.check_initialization_ready;\""
+        ]
+      interval: 60s
+      timeout: 5s
+      retries: 150
+  pipeline:
+    build:
+      context: ./pipeline
+    image: pipeline
+    container_name: pipeline_container
+    depends_on:
+      # Only run the pipeline container when the status of warehouse container is healthy
+      warehouse:
+        condition: service_healthy
+    volumes:
+      # Mount these directories on local directories (systax <local path>:<container path>)
+      - ./pipeline/.env:/app/.env
+      - ./pipeline/.env.runconfig:/app/.env.runconfig
+      - ./pipeline/excel_datasource:/app/excel_datasource
+      - ./pipeline/secretkey:/app/secretkey
+    networks:
+      - warehousesystem_network
+volumes:
+  warehouse_data:
+networks:
+  warehousesystem_network:

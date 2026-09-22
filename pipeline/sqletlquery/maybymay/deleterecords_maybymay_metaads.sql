@@ -1,0 +1,1 @@
+delete from mbm_metaads;

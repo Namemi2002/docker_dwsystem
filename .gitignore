@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# IDE (PyCharm)
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Testing purpose
+pipeline/src/devtest.py
+
+# Secret keys and tokens:
+pipeline/secretkey/
+
+# Environment and configuration secrets
+.env
+pipeline/.env
+pipeline/.env.runconfig

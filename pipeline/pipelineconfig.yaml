@@ -1,0 +1,969 @@
+ghtk:
+  excel:
+    path:
+      acc1:
+        name: 'S22738673 / Thoi trang thiet ke MDU'
+        deliveryorders: 'GHTK_EXCEL_DELIVERYORDERS_ACC1'
+        canceledorders: 'GHTK_EXCEL_CANCELEDORDERS_ACC1'
+        paymentminutes: 'GHTK_EXCEL_PAYMENTMINUTES_ACC1'
+        compensations: 'GHTK_EXCEL_COMPENSATIONS_ACC1'
+        checkpath_deliveryorders:
+          - 'ghtk'
+          - 'tk1'
+          - 'đơn đi'
+        checkpath_canceledorders:
+          - 'ghtk'
+          - 'tk1'
+          - 'đơn hủy'
+        checkpath_paymentminutes:
+          - 'ghtk'
+          - 'tk1'
+          - 'bbthanhtoan'
+        checkpath_compensations:
+          - 'ghtk'
+          - 'tk1'
+          - 'bồi hoàn'
+    usecols:
+      deliveryorders:
+        - 'Mã ĐH'
+        - 'Mã ĐH shop'
+        - 'Trạng thái đơn hàng'
+        - 'Thời gian tạo đơn'
+        - 'Thời gian lấy thành công'
+        - 'Thời gian giao hàng thành công'
+        - 'Giá trị hàng hóa'
+      paymentminutes:
+        - 'STT'
+        - 'Mã đơn hàng'
+        - 'Tiền CoD'
+        - 'Phí giao hàng'
+        - 'Phí khai giá'
+        - 'Phí dễ vỡ'
+        - 'Phí gia cố đơn hàng'
+        - 'Phí thực phẩm khô'
+        - 'Phí hàng nguyên hộp'
+        - 'Phí quay lại điểm lấy hàng'
+        - 'Phí bốc xếp 1 chiều, tầng trệt'
+        - 'Phí bốc xếp 1 chiều, tầng lầu'
+        - 'Phí bốc xếp 2 chiều, tầng trệt'
+        - 'Phí thêm người bốc xếp'
+        - 'Phí chờ trên mỗi điểm giao'
+        - 'Phí thử hàng / đồng kiểm'
+        - 'Phí thư tín, tài liệu'
+        - 'Phí nguyên vật liệu'
+        - 'Phí hoàn hàng'
+        - 'Phí thay đổi địa chỉ giao'
+        - 'Phí lưu kho'
+        - 'Phí giao lại'
+        - 'Phí đổi địa chỉ trả hàng'
+        - 'Phí xuất trả lại'
+        - 'Tiền tip COD'
+        - 'Khuyến mãi'
+      compensations:
+        - 'Mã đơn hàng'
+        - 'Tiền bồi hoàn'
+    usedtype:
+      deliveryorders:
+        Mã ĐH: 'object'
+      paymentminutes:
+        Mã đơn hàng: 'object'
+      compensations:
+        Mã đơn hàng: 'object'
+    clean:
+      finalcols:
+        - 'Mã ĐH'
+        - 'Mã ĐH shop'
+        - 'Trạng thái đơn hàng'
+        - 'Tiền CoD'
+        - 'Giá trị hàng hóa'
+        - 'Tổng vận phí'
+        - 'Thời gian tạo đơn'
+        - 'Thời gian lấy thành công'
+        - 'Thời gian giao hàng thành công'
+        - 'ĐVVC'
+        - 'Tiền bồi hoàn'
+        - 'Tài khoản ĐVVC'
+      listfee_paymentminutes:
+        - 'Phí giao hàng'
+        - 'Phí khai giá'
+        - 'Phí dễ vỡ'
+        - 'Phí gia cố đơn hàng'
+        - 'Phí thực phẩm khô'
+        - 'Phí hàng nguyên hộp'
+        - 'Phí quay lại điểm lấy hàng'
+        - 'Phí bốc xếp 1 chiều, tầng trệt'
+        - 'Phí bốc xếp 1 chiều, tầng lầu'
+        - 'Phí bốc xếp 2 chiều, tầng trệt'
+        - 'Phí thêm người bốc xếp'
+        - 'Phí chờ trên mỗi điểm giao'
+        - 'Phí thử hàng / đồng kiểm'
+        - 'Phí thư tín, tài liệu'
+        - 'Phí nguyên vật liệu'
+        - 'Phí hoàn hàng'
+        - 'Phí thay đổi địa chỉ giao'
+        - 'Phí lưu kho'
+        - 'Phí giao lại'
+        - 'Phí đổi địa chỉ trả hàng'
+        - 'Phí xuất trả lại'
+        - 'Tiền tip COD'
+        - 'Khuyến mãi'
+ghn:
+  excel:
+    path:
+      acc1:
+        name: 'Nha thiet ke MDU'
+        deliveryorders: 'GHN_EXCEL_DELIVERYORDERS_ACC1'
+        cointransactions: 'GHN_EXCEL_COINTRANSACTIONS_ACC1'
+        checkpath_deliveryorders:
+          - 'ghn'
+          - 'tk1'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'ghn'
+          - 'tk1'
+          - 'gdxu'
+      acc4:
+        name: 'Nha thiet ke MDU2'
+        deliveryorders: 'GHN_EXCEL_DELIVERYORDERS_ACC4'
+        cointransactions: 'GHN_EXCEL_COINTRANSACTIONS_ACC4'
+        checkpath_deliveryorders:
+          - 'ghn'
+          - 'tk4'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'ghn'
+          - 'tk4'
+          - 'gdxu'
+      acc5:
+        name: 'Nha thiet ke MDU3'
+        deliveryorders: 'GHN_EXCEL_DELIVERYORDERS_ACC5'
+        cointransactions: 'GHN_EXCEL_COINTRANSACTIONS_ACC5'
+        checkpath_deliveryorders:
+          - 'ghn'
+          - 'tk5'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'ghn'
+          - 'tk5'
+          - 'gdxu'
+      acc6:
+        name: 'Thoi trang thiet ke MDU1'
+        deliveryorders: 'GHN_EXCEL_DELIVERYORDERS_ACC6'
+        cointransactions: 'GHN_EXCEL_COINTRANSACTIONS_ACC6'
+        checkpath_deliveryorders:
+          - 'ghn'
+          - 'tk6'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'ghn'
+          - 'tk6'
+          - 'gdxu'
+      acc7:
+        name: 'Thoi trang thiet ke MDU2'
+        deliveryorders: 'GHN_EXCEL_DELIVERYORDERS_ACC7'
+        cointransactions: 'GHN_EXCEL_COINTRANSACTIONS_ACC7'
+        checkpath_deliveryorders:
+          - 'ghn'
+          - 'tk7'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'ghn'
+          - 'tk7'
+          - 'gdxu'
+    usecols:
+      deliveryorders:
+        - 'Mã đơn hàng'
+        - 'Trạng thái'
+        - 'Tổng phí dịch vụ'
+        - 'Phí hoàn hàng'
+        - 'Tiền COD'
+        - 'GTB - Thu tiền'
+        - 'Giá trị khai giá'
+        - 'Mã đơn hàng riêng'
+        - 'Ngày tạo đơn'
+        - 'Ngày lấy hàng thành công'
+        - 'Ngày giao hàng thành công'
+        - 'Ngày giao hàng lần đầu'
+        - 'Ngày thu GTB - thu tiền'
+      cointransactions:
+        - 'Loại giao dịch'
+        - 'Nội dung'
+        - 'Số tiền'
+    usedtype:
+      deliveryorders:
+        Mã đơn hàng: 'object'
+      cointransactions:
+        Nội dung: 'object'
+    clean:
+      finalcols:
+        - 'Mã đơn hàng'
+        - 'Mã đơn hàng riêng'
+        - 'Trạng thái'
+        - 'Tiền COD'
+        - 'Giá trị khai giá'
+        - 'Tổng vận phí'
+        - 'Ngày tạo đơn'
+        - 'Ngày lấy hàng thành công'
+        - 'Ngày giao hàng thành công'
+        - 'ĐVVC'
+        - 'Tiền bồi hoàn'
+        - 'Tài khoản ĐVVC'
+jte:
+  excel:
+    path:
+      acc1:
+        name: '208NQ09994'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC1'
+        checkpath_deliveryorders:
+          - 'tk1'
+          - 'jte'
+          - 'đơn đi'
+      acc2:
+        name:
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC2'
+        checkpath_deliveryorders:
+          - 'tk2'
+          - 'jte'
+          - 'đơn đi'
+      acc3:
+        name: '208NQ18498'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC3'
+        checkpath_deliveryorders:
+          - 'tk3'
+          - 'jte'
+          - 'đơn đi'
+      acc4:
+        name: '208NQ18574'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC4'
+        checkpath_deliveryorders:
+          - 'tk4'
+          - 'jte'
+          - 'đơn đi'
+    usecols:
+      deliveryorders:
+        - 'Mã vận đơn'
+        - 'Trạng thái vận đơn'
+        - 'Thời gian tạo đơn'
+        - 'Cước phí'
+        - 'Tiền thu hộ COD'
+        - 'COD thực thu'
+        - 'Mã đơn KH'
+        - 'Thời gian lấy hàng'
+        - 'Thời gian ký nhận'
+        - 'Phí lưu kho'
+    usedtype:
+      deliveryorders:
+        Mã vận đơn: 'object'
+        Mã đơn KH: 'object'
+        Thời gian tạo đơn: 'object'
+        Thời gian lấy hàng: 'object'
+        Thời gian ký nhận: 'object'
+    clean:
+      finalcols:
+        - 'Mã vận đơn'
+        - 'Mã đơn KH'
+        - 'Trạng thái vận đơn'
+        - 'COD thực thu'
+        - 'Tiền thu hộ COD'
+        - 'Tổng vận phí'
+        - 'Thời gian tạo đơn'
+        - 'Thời gian lấy hàng'
+        - 'Thời gian ký nhận'
+        - 'ĐVVC'
+        - 'Tiền bồi hoàn'
+        - 'Tài khoản ĐVVC'
+spx:
+  excel:
+    path:
+      acc1:
+        name: '1681289937'
+        deliveryorders: 'SPX_EXCEL_DELIVERYORDERS_ACC1'
+        checkpath_deliveryorders:
+          - 'tk1'
+          - 'spx'
+          - 'đơn đi'
+    usecols:
+      deliveryorders:
+        - 'Mã vận đơn'
+        - 'Trạng thái hiện tại'
+        - 'Số tiền COD'
+        - 'Giá trị đơn hàng'
+        - 'Phí vận chuyển thực tế'
+        - 'Thời gian tạo đơn'
+        - 'Thời gian lấy hàng/gửi hàng'
+        - 'Thời gian giao hàng'
+    usedtype:
+      deliveryorders:
+        Mã vận đơn: 'object'
+    clean:
+      finalcols:
+        - 'Mã vận đơn'
+        - 'Mã ĐH Shop'
+        - 'Trạng thái hiện tại'
+        - 'Số tiền COD'
+        - 'Giá trị đơn hàng'
+        - 'Phí vận chuyển thực tế'
+        - 'Thời gian tạo đơn'
+        - 'Thời gian lấy hàng/gửi hàng'
+        - 'Thời gian giao hàng'
+        - 'ĐVVC'
+        - 'Tiền bồi hoàn'
+        - 'Tài khoản ĐVVC'
+cusbank:
+  idfile: 'GGSHEET_CUSBANK_IDFILE'
+  idsheet: 'GGSHEET_CUSBANK_IDSHEET'
+  datarange: 'A10205:H'
+  usecols:
+    - 'ID'
+    - 'Ngày'
+    - 'ID đơn hàng'
+    - 'Sđt khách bank'
+    - 'Số tiền bank'
+    - 'Người xác nhận'
+    - 'Mã FT'
+    - 'Ghi chú'
+  finalcols:
+    - 'ID'
+    - 'Ngày'
+    - 'ID đơn hàng'
+    - 'Sđt khách bank'
+    - 'Số tiền bank'
+    - 'Người xác nhận'
+    - 'Mã FT'
+    - 'Ghi chú'
+codtvc:
+  datasource:
+    source1:
+      idfile: 'GGSHEET_CODTVC_IDFILE_1'
+      idsheet: 'GGSHEET_CODTVC_IDSHEET_1'
+    source2:
+      idfile: 'GGSHEET_CODTVC_IDFILE_2'
+      idsheet: 'GGSHEET_CODTVC_IDSHEET_2'
+    source3:
+      idfile: 'GGSHEET_CODTVC_IDFILE_3'
+      idsheet: 'GGSHEET_CODTVC_IDSHEET_3'
+  datarange: 'B4:Q'
+  usecols:
+    - 'STT'
+    - 'Ngày lên'
+    - 'Ngày đi'
+    - 'Tên khách hàng'
+    - 'Sđt khách hàng'
+    - 'Mã hàng'
+    - 'ID đơn'
+    - 'SL đơn'
+    - 'SL váy'
+    - 'Địa chỉ'
+    - 'Trạng thái'
+    - 'Tổng Cod'
+    - 'Phí Ship'
+    - 'Cod BANK'
+    - 'Cod Tiền mặt'
+    - 'NV đi đơn'
+  finalcols:
+    - 'Mã vận đơn'
+    - 'ID đơn'
+    - 'Trạng thái'
+    - 'COD thu khách'
+    - 'Tổng Cod'
+    - 'Phí Ship'
+    - 'Ngày lên'
+    - 'Ngày đi'
+    - 'Thời gian ký nhận'
+    - 'ĐVVC'
+    - 'Tiền bồi hoàn'
+    - 'Tài khoản ĐVVC'
+internalprice:
+  idfile: 'GGSHEET_INTERNALPRICE_IDFILE'
+  idsheet: 'GGSHEET_INTERNALPRICE_IDSHEET'
+  datarange: 'A3:AK'
+  usecols:
+    - 'Mã SP'
+    - 'Col2'
+    - 'Col3'
+    - 'Col4'
+    - 'Col5'
+    - 'Col6'
+    - 'Col7'
+    - 'Col8'
+    - 'Col9'
+    - 'Col10'
+    - 'Giá nội bộ'
+    - 'Col12'
+    - 'Col13'
+    - 'Col14'
+    - 'Col15'
+    - 'Col16'
+    - 'Col17'
+    - 'Col18'
+    - 'Col19'
+    - 'Col20'
+    - 'Col21'
+    - 'Col22'
+    - 'Col23'
+    - 'Col24'
+    - 'Col25'
+    - 'Col26'
+    - 'Col27'
+    - 'Col28'
+    - 'Col29'
+    - 'Mục đích'
+    - 'Màu sắc'
+    - 'Chất liệu'
+    - 'Cổ váy'
+    - 'Tay váy'
+    - 'Chiều dài tay'
+    - 'Kiểu váy'
+    - 'Mẫu vải'
+  finalcols:
+    - 'Mã SP'
+    - 'Giá nội bộ'
+    - 'Mục đích'
+    - 'Màu sắc'
+    - 'Chất liệu'
+    - 'Cổ váy'
+    - 'Tay váy'
+    - 'Chiều dài tay'
+    - 'Kiểu váy'
+    - 'Mẫu vải'
+returnedorderscan:
+  datasource:
+    source1:
+      idfile: 'GGSHEET_RETURNEDORDERSCAN_IDFILE'
+      idsheet: 'GGSHEET_RETURNEDORDERSCAN_IDSHEET_1'
+      datarange: 'A2:F'
+      usecols:
+        - 'Key'
+        - 'NGÀY'
+        - 'THÁNG'
+        - 'Mã vận đơn'
+        - 'Col1'
+        - 'Mã SP'
+    source2:
+      idfile: 'GGSHEET_RETURNEDORDERSCAN_IDFILE'
+      idsheet: 'GGSHEET_RETURNEDORDERSCAN_IDSHEET_2'
+      datarange: 'A2:F'
+      usecols:
+        - 'Key'
+        - 'NGÀY'
+        - 'THÁNG'
+        - 'Mã vận đơn'
+        - 'Col1'
+        - 'Mã SP'
+    source3:
+      idfile: 'GGSHEET_RETURNEDORDERSCAN_IDFILE'
+      idsheet: 'GGSHEET_RETURNEDORDERSCAN_IDSHEET_3'
+      datarange: 'A2:F'
+      usecols:
+        - 'Key'
+        - 'NGÀY'
+        - 'THÁNG'
+        - 'Mã vận đơn'
+        - 'Col1'
+        - 'Mã SP'
+    source4:
+      idfile: 'GGSHEET_RETURNEDORDERSCAN_IDFILE'
+      idsheet: 'GGSHEET_RETURNEDORDERSCAN_IDSHEET_4'
+      datarange: 'A2:F'
+      usecols:
+        - 'Key'
+        - 'NGÀY'
+        - 'THÁNG'
+        - 'Mã vận đơn'
+        - 'Col1'
+        - 'Mã SP'
+    source5:
+      idfile: 'GGSHEET_RETURNEDORDERSCAN_IDFILE'
+      idsheet: 'GGSHEET_RETURNEDORDERSCAN_IDSHEET_5'
+      datarange: 'A2:F'
+      usecols:
+        - 'Key'
+        - 'NGÀY'
+        - 'THÁNG'
+        - 'Mã vận đơn'
+        - 'Col1'
+        - 'Mã SP'
+  finalcols:
+    - 'Key'
+    - 'Ngày bắn'
+    - 'Mã vận đơn'
+    - 'Mã SP'
+deliveryorderscan:
+  idfile: 'GGSHEET_DELIVERYORDERSCAN_IDFILE'
+  idsheet: 'GGSHEET_DELIVERYORDERSCAN_IDSHEET'
+  datarange: 'A2:B'
+  usecols:
+    - 'Mã vận đơn'
+    - 'Ngày bắn đơn'
+  finalcols:
+    - 'Mã vận đơn'
+    - 'Ngày bắn đơn'
+    - 'Buffer1'
+    - 'Buffer2'
+    - 'Buffer3'
+deliveryordershandlingteam:
+  datasource:
+    source1_1:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_1'
+    source1_2:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_2'
+    source1_3:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_3'
+    source1_4:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet:  'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_4'
+    source1_5:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet:  'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_5'
+    source1_6:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet:  'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_6'
+    source1_7:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet:  'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_7'
+    source2_1:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_1'
+    source2_2:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_2'
+    source2_3:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_3'
+    source2_4:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_4'
+    source2_5:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_5'
+    source2_6:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_6'
+    source2_7:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_7'
+    source3_1:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_1'
+    source3_2:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_2'
+    source3_3:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_3'
+    source3_4:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_4'
+    source3_5:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_5'
+  datarange: 'B1:O'
+  usecols:
+    - 'Mã vận đơn'
+    - 'Col3'
+    - 'Col4'
+    - 'Col5'
+    - 'Col6'
+    - 'Col7'
+    - 'Col8'
+    - 'Col9'
+    - 'Col10'
+    - 'Col11'
+    - 'Col12'
+    - 'Ghi chú 1'
+    - 'Ghi chú 2'
+    - 'Ghi chú 3'
+  finalcols:
+    - 'Mã vận đơn'
+    - 'Buffer1'
+    - 'Ghi chú 1'
+    - 'Ghi chú 2'
+    - 'Ghi chú 3'
+maybymay_metaads:
+  idfile: 'GGSHEET_METAADS_MAYBYMAY_IDFILE'
+  idsheet: 'GGSHEET_METAADS_MAYBYMAY_IDSHEET'
+  datarange: 'A1:L'
+  usecols:
+    - 'Ngày'
+    - 'ID chiến dịch'
+    - 'ID tài khoản'
+    - 'Tên tài khoản'
+    - 'Tên chiến dịch'
+    - 'Phân phối chiến dịch'
+    - 'Số tiền đã chi tiêu'
+    - 'Bình luận về bài viết'
+    - 'Lượt bắt đầu cuộc trò chuyện qua tin nhắn'
+    - 'Lượt mua'
+    - 'Giá trị chuyển đổi từ lượt mua'
+    - 'Ngân sách chiến dịch'
+  finalcols:
+    - 'Ngày'
+    - 'ID chiến dịch'
+    - 'ID tài khoản'
+    - 'Tên tài khoản'
+    - 'Tên chiến dịch'
+    - 'Phân phối chiến dịch'
+    - 'Số tiền đã chi tiêu'
+    - 'Bình luận về bài viết'
+    - 'Lượt bắt đầu cuộc trò chuyện qua tin nhắn'
+    - 'Lượt mua'
+    - 'Giá trị chuyển đổi từ lượt mua'
+    - 'Ngân sách chiến dịch'
+    - 'Tên page'
+    - 'Tên MKT'
+    - 'Mã SP'
+maybymay_testorders:
+  idfile: 'GGSHEET_TESTORDERS_MAYBYMAY_IDFILE'
+  idsheet: 'GGSHEET_TESTORDERS_MAYBYMAY_IDSHEET'
+  datarange_oldversion: 'C2:K'
+  usecols_oldversion:
+    - 'Mã SP test'
+    - 'Tên fb KH'
+    - 'Sđt KH'
+    - 'Size SP test'
+    - 'COD lên đơn'
+    - 'NV chốt đơn'
+    - 'Ghi chú'
+    - 'Ngày đặt hàng'
+    - 'Tên page'
+  datarange: 'A2:J'
+  usecols:
+    - 'Ngày đặt hàng'
+    - 'Mã SP test'
+    - 'Màu sắc'
+    - 'Size SP test'
+    - 'COD lên đơn'
+    - 'Tên fb KH'
+    - 'Sđt KH'
+    - 'NV chốt đơn'
+    - 'Tên page'
+    - 'Ghi chú'
+  finalcols:
+    - 'Sđt KH'
+    - 'Mã SP test'
+    - 'Size SP test'
+    - 'Tên page'
+    - 'Ngày đặt hàng'
+    - 'Tên fb KH'
+    - 'COD lên đơn'
+transaction_jte:
+  excel:
+    folderpath: 'JTE_EXCEL_TRANSACTION_FOLDERPATH'
+    skiprows: 0
+    check_filepath:
+      - 'JTE'
+      - 'đối soát'
+    usecols:
+      - 'Mã vận đơn'
+      - 'Tiền thực nhận'
+      - 'Kỳ thanh toán'
+    usedtype:
+      Mã vận đơn: 'object'
+      Tiền thực nhận: 'int'
+      Kỳ thanh toán: 'object'
+    finalcols:
+      - 'Kỳ thanh toán'
+      - 'Mã vận đơn'
+      - 'Tiền thực nhận'
+      - 'Ngày giao dịch'
+      - 'Hãng vận chuyển'
+      - 'Nội dung giao dịch'
+transaction_spx:
+  excel:
+    folderpath: 'SPX_EXCEL_TRANSACTION_FOLDERPATH'
+    check_filepath:
+      - 'SPX'
+      - 'đối soát'
+    usecols:
+      - 'Mã giao dịch'
+      - 'Mã vận đơn'
+      - 'Thời gian giao dịch'
+      - 'Số tiền (VND)'
+    usedtype:
+      Mã giao dịch: 'object'
+      Mã vận đơn: 'object'
+      Số tiền (VND): 'int'
+    finalcols:
+      - 'Mã giao dịch'
+      - 'Mã vận đơn'
+      - 'Số tiền (VND)'
+      - 'Thời gian giao dịch'
+      - 'Hãng vận chuyển'
+      - 'Nội dung giao dịch'
+transaction_ghn:
+  excel:
+    folderpath: 'GHN_EXCEL_TRANSACTION_FOLDERPATH'
+    check_filepath:
+      - 'GHN'
+      - 'đối soát'
+    usecols:
+      - 'Mã đơn GHN'
+      - '(1) + (2) + (3) + (4) + (5)'
+    usedtype:
+      Mã đơn GHN: 'object'
+      (1) + (2) + (3) + (4) + (5): 'int'
+    finalcols:
+      - 'Phiên'
+      - 'Mã đơn GHN'
+      - '(1) + (2) + (3) + (4) + (5)'
+      - 'Ngày'
+      - 'Hãng vận chuyển'
+      - 'Nội dung giao dịch'
+cointransaction_ghn:
+  excel:
+    folderpath: 'GHN_EXCEL_COINTRANSACTION_FOLDERPATH'
+    check_filepath:
+      - 'GHN'
+      - 'gdxu'
+    usecols:
+      - 'Ngày'
+      - 'Loại giao dịch'
+      - 'Nội dung'
+      - 'Số tiền'
+    usedtype:
+      Ngày: 'object'
+      Số tiền: 'int'
+    finalcols:
+      - 'Mã giao dịch'
+      - 'Nội dung'
+      - 'Số tiền'
+      - 'Ngày'
+      - 'Hãng vận chuyển'
+      - 'Nội dung giao dịch'
+nhanhvn:
+  account:
+    acc1:
+      name: 'mydu1hn_thanhnammdu_1'
+      appid: 'NHANHVN_APPID_ACC1'
+      businessid: 'NHANHVN_BUSINESSID_ACC1'
+      accesstoken: 'NHANHVN_ACCESSTOKEN_ACC1'
+  api:
+    orders:
+      startdate: 'NHANHVN_API_ORDERS_STARTDATE'
+      enddate: 'NHANHVN_API_ORDERS_ENDDATE'
+      orderfinalcols:
+        - 'ID'
+        - 'Thoi gian'
+        - 'Ten khach hang'
+        - 'So dien thoai'
+        - 'Thanh pho'
+        - 'Quan huyen'
+        - 'Hang van chuyen'
+        - 'Ma don hang van chuyen'
+        - 'Trang thai'
+        - 'Nguon don hang cha'
+        - 'Nguon don hang con'
+        - 'Nen tang'
+        - 'Ngay gui HVC'
+        - 'COD tra truoc'
+        - 'Nguoi tao don'
+        - 'Ghi chu noi bo'
+        - 'Ghi chu cua khach'
+        - 'previous_ID ghi chu noi bo'
+        - 'previous_ID ghi chu cua khach'
+        - 'Di lech ma'
+      orderdetailfinalcols:
+        - 'Ma san pham'
+        - 'ID'
+        - 'Ma vach'
+        - 'Ma san pham cha'
+        - 'Gia'
+        - 'Chiet khau toan bo san pham'
+        - 'So luong'
+      codeexplain:
+        idfile: 'GGSHEET_CODEEXPLAIN_NHANHVN_IDFILE'
+        idsheet: 'GGSHEET_CODEEXPLAIN_NHANHVN_IDSHEET'
+        orderstatus:
+          datarange: 'A3:B'
+        salechannel:
+          datarange: 'D3:E'
+        cityaddress:
+          datarange: 'G3:H'
+        districtaddress:
+          datarange: 'J3:K'
+maybymay_pos:
+  account:
+    acc1:
+      apikey: 'POS_APIKEY_MAYBYMAY_ACC1'
+      shopid: 'POS_SHOPID_MAYBYMAY_ACC1'
+  api:
+    orders:
+      startdate: 'MAYBYMAY_POS_API_ORDERS_STARTDATE'
+      enddate: 'MAYBYMAY_POS_API_ORDERS_ENDDATE'
+      orderfinalcols:
+        - 'ID'
+        - 'Thoi gian tao don'
+        - 'Khach hang'
+        - 'So dien thoai khach'
+        - 'Quoc gia'
+        - 'Tinh thanh'
+        - 'Quan huyen'
+        - 'Phuong xa'
+        - 'Phi van chuyen thu khach'
+        - 'Don vi van chuyen'
+        - 'Ma van don'
+        - 'Trang thai'
+        - 'Thoi diem DVVC lay hang'
+        - 'Tong giam gia don hang'
+        - 'Tien tra truoc'
+        - 'Nen tang'
+        - 'Nguon don hang cha'
+        - 'Nguon don hang con'
+        - 'ID facebook nguoi tao don'
+        - 'Ten nguoi tao don'
+        - 'ID facebook nhan vien xac nhan'
+        - 'Ten nhan vien xac nhan'
+        - 'Tien te'
+        - 'Ghi chu noi bo'
+        - 'previous_ID'
+      orderdetailfinalcols:
+        - 'ID'
+        - 'Ma san pham cha'
+        - 'Ma chi tiet san pham'
+        - 'Don gia'
+        - 'Giam gia 1 san pham'
+        - 'So luong'
+      codeexplain:
+        idfile: 'GGSHEET_CODEEXPLAIN_POS_MAYBYMAY_IDFILE'
+        idsheet: 'GGSHEET_CODEEXPLAIN_POS_MAYBYMAY_IDSHEET'
+        orderstatus:
+          datarange: 'A3:B'
+shopee:
+  api:
+    header_other_endpoints:
+      Content-Type: 'application/json'
+    orders:
+      starttime:
+        time_from: 'SHOPEE_API_ORDERS_STARTTIME'
+      endtime:
+        time_to: 'SHOPEE_API_ORDERS_ENDTIME'
+      chunk_date: 13 # [1 to 15]
+      page_size: 80 # [1 to 100]
+    orderincome:
+      starttime:
+        date_from: 'SHOPEE_API_INCOME_STARTTIME'
+      endtime:
+        date_to: 'SHOPEE_API_INCOME_ENDTIME'
+      chunk_date: 12 # [1 to 14]
+      page_size: 30 # no range information, recommend 30
+    orderdetail:
+      chunk_record: 40 # [1 to 50]
+    escrowdetail:
+      chunk_record: 35 # [1 to 50], recommend 20
+    mass_tracking_number:
+      chunk_record: 40 # [1 to 50]
+  token:
+    timerenew_beforeexpired: 1800
+    header_gettoken_endpoint:
+      Content-Type: 'application/json'
+tiktok:
+  api:
+    orders:
+      strattime:
+        create_time_ge: 'TIKTOK_API_ORDERS_STARTTIME'
+      endtime:
+        create_time_lt: 'TIKTOK_API_ORDERS_ENDTIME'
+      page_size: 70 # [1 to 100]
+    returnorders:
+      chunk_record: 40 # [1 to 50]
+  token:
+    timerenew_beforeexpired: 1800
+  excel:
+    income:
+      folderpath: 'TIKTOK_EXCEL_INCOME_FOLDERPATH'
+      usedtype:
+        ID đơn hàng/điều chỉnh: 'object'
+        Thời gian quyết toán đơn hàng: 'object'
+      finalcols:
+        - 'ID đơn hàng/điều chỉnh'
+        - 'Thời gian quyết toán đơn hàng'
+        - 'Loại giao dịch'
+        - 'Tổng số tiền quyết toán'
+        - 'Tổng doanh thu'
+        - 'Tổng phụ sau giảm giá của người bán'
+        - 'Tổng phụ trước giảm giá'
+        - 'Giảm giá của người bán'
+        - 'Tổng phụ của khoản hoàn tiền sau giảm giá của người bán'
+        - 'Tổng phụ hoàn tiền trước giảm giá của người bán'
+        - 'Khoản hoàn tiền giảm giá của người bán'
+        - 'Tổng phí'
+maybymay_ghn:
+  excel:
+    path:
+      acc1:
+        name: '5972095 - May Shop'
+        deliveryorders: 'MAYBYMAY_GHN_EXCEL_DELIVERYORDERS_ACC1'
+        cointransactions: 'MAYBYMAY_GHN_EXCEL_COINTRANSACTIONS_ACC1'
+        checkpath_deliveryorders:
+          - 'maybymay'
+          - 'ghn'
+          - 'tk1'
+          - 'đơn đi'
+        checkpath_cointransactions:
+          - 'maybymay'
+          - 'ghn'
+          - 'tk1'
+          - 'gdxu'
+maybymay_jte:
+  excel:
+    path:
+      acc1:
+        name: '024LC35194'
+        deliveryorders: 'MAYBYMAY_JTE_EXCEL_DELIVERYORDERS_ACC1'
+        checkpath_deliveryorders:
+          - 'maybymay'
+          - 'tk1'
+          - 'jte'
+          - 'đơn đi'
+maybymay_transaction_ghn:
+  excel:
+    folderpath: 'MAYBYMAY_GHN_EXCEL_TRANSACTION_FOLDERPATH'
+    check_filepath:
+      - 'maybymay'
+      - 'GHN'
+      - 'đối soát'
+maybymay_transaction_jte:
+  excel:
+    folderpath: 'MAYBYMAY_JTE_EXCEL_TRANSACTION_FOLDERPATH'
+    skiprows: 2
+    check_filepath:
+      - 'maybymay'
+      - 'JTE'
+      - 'đối soát'
+    usecols:
+      - 'Mã vận đơn'
+      - 'Số tiền phải trả sau cấn trừ'
+    usedtype:
+      Mã vận đơn: 'object'
+      Số tiền phải trả sau cấn trừ: 'int'
+maybymay_cointransaction_ghn:
+  excel:
+    folderpath: 'MAYBYMAY_GHN_EXCEL_COINTRANSACTION_FOLDERPATH'
+    check_filepath:
+      - 'maybymay'
+      - 'GHN'
+      - 'gdxu'
+updatereport_ggsheet:
+  googlesheet:
+    idfile: 'GGSHEET_UPDATEREPORTS_IDFILE' # ID file of the google sheet workbook that contains google sheet reporting information
+    idsheet: 'GGSHEET_UPDATEREPORTS_IDSHEET' # ID sheet of the google sheet workbook that contains google sheet reporting information
+    datarange: 'A2:F'
+  params: # queries may contain named placeholder (showed inside {}), use this parameter to fill those placeholders
+    reportmonth: 'UPDATEREPORT_REPORTMONTH'
+    reportyear: 'UPDATEREPORT_REPORTYEAR'
+    within1month_startdate: 'UPDATEREPORT_WITHIN1MONTH_STARTDATE'
+maybymay_updatereport_ggsheet:
+  googlesheet:
+    idfile: 'GGSHEET_UPDATEREPORTS_MAYBYMAY_IDFILE'
+    idsheet: 'GGSHEET_UPDATEREPORTS_MAYBYMAY_IDSHEET'
+    datarange: 'A2:F'
+  params:
+    startdate: 'MAYBYMAY_UPDATEREPORT_STARTDATE'
+    enddate: 'MAYBYMAY_UPDATEREPORT_ENDDATE'
+    ads_start: 'MAYBYMAY_UPDATEREPORT_ADS_STARTDATE'
+    ads_end: 'MAYBYMAY_UPDATEREPORT_ADS_ENDDATE'
+    monthsalary: 'MAYBYMAY_UPDATEREPORT_SALARY_MONTH'
+    yearsalary: 'MAYBYMAY_UPDATEREPORT_SALARY_YEAR'

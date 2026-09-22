@@ -1,0 +1,9 @@
+# Virtual environment, IDE, Python cache
+venv/
+.idea/
+__pycache__/
+*.pyc
+*.pyo
+
+# README file
+README.md
