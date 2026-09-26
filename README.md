@@ -30,22 +30,7 @@ In addition to the business impacts, the Data Warehouse system was designed with
 
 This Data Warehouse system follows a classic data warehouse architecture consisting of three main layers: the **Source Layer**, **Storage Layer**, and **Reporting Layer**. Data pipelines operate across these layers to extract, transform, validate, and load data.
 
-```mermaid
-flowchart LR
-    A["Source Layer"] --> B["Data Pipelines"]
-    B --> C["Storage Layer"]
-    C --> D["Reporting Layer"]
-
-    A1["Nhanh.vn"] --> A
-    A2["Shopee Shop"] --> A
-    A3["TikTok Shop"] --> A
-    A4["POS / Other Platforms"] --> A
-    A5["Google Sheets"] --> A
-    A6["Microsoft Excel"] --> A
-
-    D --> D1["Metabase"]
-    D --> D2["Google Sheets"]
-```
+![Data Flow Architecture](docs/images/dataflow_architecture.jpg)
 
 ### Source Layer
 
@@ -71,9 +56,9 @@ For more detailed information about the architecture and implementation of the S
 
 The Reporting Layer provides data to stakeholders for operational reporting and analysis.
 
-The system currently provides two reporting interfaces:
+The system currently supports two reporting interfaces:
 
-- **Metabase:** Used to build dashboards and visualize business metrics.
+- **BI tools:** Used to build dashboards and visualize business metrics.
 - **Google Sheets:** Used to provide report tables and support reporting workflows that require spreadsheet-based outputs.
 
 Both interfaces consume standardized data from the centralized Storage Layer.
@@ -88,33 +73,33 @@ For more detailed information about the Data Pipeline architecture and implement
 
 ## 5. Technologies
 
-The system intentionally uses a relatively simple technology stack. Rather than relying on a large number of high-level data engineering tools, it uses Python, SQL, APIs, and Docker to implement the core data processing and storage workflows.
+The system intentionally uses a relatively simple technology stack to avoid over-engineering. Rather than relying on a large number of high-level data engineering tools, it uses Python, SQL, APIs, and Docker to implement the core data processing and storage workflows.
 
 The following table summarizes the main technologies and their roles in the project:
 
-| Component | Role |
-|:---|:---|
-| **Python** | Design, build, and operate data pipelines |
-| **MySQL** | Build and operate the Storage Layer |
-| **Docker** | Containerize and run the system services |
-| **pandas** | Handle DataFrame-based data extraction and transformation during ETL |
-| **requests** | Extract data from external APIs |
-| **PyMySQL** | Enable communication between the data pipelines and MySQL storage |
-| **gspread** | Integrate data pipelines with the Google Sheets API |
-| **Unidecode** | Handle text normalization and related transformation processes |
-| **PyYAML** | Read and manage YAML-based pipeline configuration |
-| **time** | Handle timing and retry-related processes |
-| **glob** | Locate and process files using file patterns |
-| **warnings** | Handle and control Python warnings during pipeline execution |
-| **Nhanh.vn Open API** | Extract data from the Nhanh.vn platform |
-| **POS API** | Extract data from the POS platform |
-| **Shopee Open API** | Extract data from Shopee shops |
-| **TikTok Shop Partner API** | Extract data from TikTok shops |
-| **Google Sheets API** | Support data extraction and loading processes involving Google Sheets |
+| Component                   | Role                                                                             |
+|:----------------------------|:---------------------------------------------------------------------------------|
+| **Python**                  | Design, build, and operate data pipelines                                        |
+| **MySQL**                   | Build and operate the Storage Layer                                              |
+| **Docker**                  | Containerize and run the system services                                         |
+| **pandas library**          | Handle DataFrame-based data extraction and transformation processes of pipelines |
+| **requests library**                | Extract data from external APIs                                                  |
+| **PyMySQL library**                 | Enable communication between the data pipelines and the Storage Layer            |
+| **gspread library**                 | Integrate data pipelines with the Google Sheets API                              |
+| **Unidecode library**               | Handle text normalization                   |
+| **PyYAML library**                  | Read and manage YAML-based pipeline configuration                                |
+| **time library**                    | Handle timing and retry-related processes                                        |
+| **glob library**                    | Locate and process files using file patterns                                     |
+| **warnings library**                | Handle and control Python warnings during pipeline execution                     |
+| **Nhanh.vn Open API**       | Extract data from the Nhanh.vn platform                                          |
+| **POS API**                 | Extract data from the POS platform                                               |
+| **Shopee Open API**         | Extract data from Shopee shops                                                   |
+| **TikTok Shop Partner API** | Extract data from TikTok shops                                                   |
+| **Google Sheets API**       | Support data extraction and loading processes involving Google Sheets            |
 
 ## 6. How To Use
 
-The system is designed for two main activities:
+To take over the system, two activities are needed:
 
 1. **Deploying the system**
 2. **Operating the data pipelines**
@@ -123,7 +108,7 @@ The system is designed for two main activities:
 >
 > Other components contain business-specific logic and should not be copied directly unless your organization's data architecture and business rules are sufficiently similar.
 
-### Deploying
+### 6.1. Deploying
 
 #### Step 1: Clone the repository
 
@@ -131,7 +116,6 @@ Clone this repository to your local machine:
 
 ```bash
 git clone <https://github.com/Namemi2002/docker_dwsystem>
-cd <docker_dwsystem>
 ```
 
 #### Step 2: Configure Google Sheets API credentials
@@ -152,7 +136,7 @@ Open:
 /.env.example
 ```
 
-and configure the required password and port values.
+and configure the required MySQL root password and port value.
 
 #### Step 4: Configure API credentials
 
@@ -172,13 +156,13 @@ and configure the credentials and identifiers required by the pipeline, includin
 
 The required credentials are specific to the data sources used by the system. Contact the system creator if you need specific guidance on how to get those credentials and identifiers.
 
-#### Step 5: Initialize historical data (system takeover only)
+#### Step 5: Initialize historical data (optional - system takeover only)
 
 **Only perform this step if you are taking over the operation of this system for the company where it was originally deployed.**
 
-This step initializes the Data Warehouse with the historical data accumulated by the system.
+This step initializes the Data Lake with the historical data accumulated by the system.
 
-Go to this [drive](https://drive.google.com/drive/folders/1fu4rOyCTje5fO-vtkYgijY3g5zF9z_To), download all files then place them in:
+Go to this [google drive](https://drive.google.com/drive/folders/1fu4rOyCTje5fO-vtkYgijY3g5zF9z_To), download all files then place them in:
 
 ```text
 /warehouse/init_insert/
@@ -204,25 +188,20 @@ secretkey.example/
 
 #### Step 7: Start the system
 
-Open Command Prompt or PowerShell and navigate to the cloned repository:
+Open Command Prompt or PowerShell and navigate to the cloned repository, then start the services using Docker Compose:
 
 ```bash
 cd <docker_dwsystem>
-```
-
-Then start the services using Docker Compose:
-
-```bash
 docker compose up -d
 ```
 
 After the services have started, the system is ready for operation.
 
-### Operating
+### 6.2. Operating
 
 Before operating the system, read the pipeline `orchestrator` module carefully to understand how the different pipelines are designed and executed. This is important because different pipelines may be responsible for different data sources or business processes.
 
-#### Step 1: Configure pipeline execution in /pipeline/.env.runconfig
+#### Step 1: Configure pipeline execution
 
 The file:
 
@@ -232,13 +211,7 @@ The file:
 
 determines which pipelines should be executed and how they should retrieve their source data.
 
-The first 25 lines determine which pipelines will run. Set the corresponding pipeline value to:
-
-```text
-run
-```
-
-for each pipeline that you want to execute.
+The first 25 lines determine which pipelines will run. Set the corresponding pipeline value to `run` for each pipeline that you want to execute.
 
 The remaining configuration values determine how the selected pipelines retrieve their source data. Depending on the pipeline, these parameters may specify information such as:
 
@@ -246,7 +219,7 @@ The remaining configuration values determine how the selected pipelines retrieve
 - The date range from which data should be retrieved
 - Other pipeline-specific execution parameters
 
-Review the available configuration values in `.env.runconfig` before starting a pipeline.
+Review the available configuration values in `/pipeline/.env.runconfig` before starting a pipeline.
 
 #### Step 2: Run pipelines
 
@@ -268,6 +241,14 @@ Open Command Prompt or PowerShell, navigate to the repository folder, and run:
 docker compose run --rm pipeline python maybymay_runpipeline.py
 ```
 
-The pipeline will execute according to the configuration in `.env.runconfig`.
+The pipeline will execute according to the configuration in `/pipeline/.env.runconfig`.
 
-After the pipeline finishes, review the execution output and logs from pipelines_runtime_log table to verify that the expected processes completed successfully.
+After the pipeline finishes, you can review the execution output and logs from the `pipelines_runtime_log` table to verify that the expected processes completed successfully.
+
+![Pipelines Runtime Log](docs/images/pipelines_runtime_log_data.png)
+
+Once the system has been deployed and the Storage Layer contains data, you can connect any BI tool to the Data Warehouse and build dashboards for business reporting and analysis, such as this example using Metabase:
+
+![BI dashboard](docs/images/bi_dashboard.png)
+
+The specific guidance for building dashboards are not included in this repository, as they vary depending on the BI tool being used and would make the documentation unnecessarily long. The focus of this repository is the design and implementation of the Data Warehouse system and its data pipelines.
