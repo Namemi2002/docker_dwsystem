@@ -199,7 +199,7 @@ After the services have started, the system is ready for operation.
 
 ### 6.2. Operating
 
-Before operating the system, read the pipeline `orchestrator` module carefully to understand how the different pipelines are designed and executed. This is important because different pipelines may be responsible for different data sources or business processes.
+Before operating the system, read the `orchestrator` module in pipeline service carefully to understand how different pipelines are designed and executed. This is important because different pipelines are responsible for different data sources and business processes.
 
 #### Step 1: Configure pipeline execution
 
@@ -225,7 +225,7 @@ Review the available configuration values in `/pipeline/.env.runconfig` before s
 
 The Storage Layer currently contains data from two companies. Each company uses a different pipeline entry point, so the appropriate command must be used depending on the company whose data needs to be processed.
 
-**For Mydu:**
+**For Mydu business:**
 
 Open Command Prompt or PowerShell, navigate to the repository folder, and run:
 
@@ -233,7 +233,7 @@ Open Command Prompt or PowerShell, navigate to the repository folder, and run:
 docker compose start pipeline
 ```
 
-**For Mây By Mây:**
+**For Mây By Mây business:**
 
 Open Command Prompt or PowerShell, navigate to the repository folder, and run:
 
