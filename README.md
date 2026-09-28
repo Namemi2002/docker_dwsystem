@@ -36,7 +36,7 @@ This Data Warehouse system follows a classic data warehouse architecture consist
 
 The Source Layer contains the systems and files where operational data is originally generated.
 
-The system currently integrates data from multiple sources, including:
+This data warehouse system currently integrates data from multiple sources, including:
 
 - Third-party platforms such as Nhanh.vn, POS, Shopee Shop, TikTok Shop, and delivery platforms (Giao Hang Nhanh, J&T Express, etc)
 - Google Sheets
@@ -54,7 +54,7 @@ For more detailed information about the architecture and implementation of the S
 
 ### Reporting Layer
 
-The Reporting Layer provides data to stakeholders for operational reporting and analysis.
+The Reporting Layer provides interfaces to stakeholders for operational reporting and analysis.
 
 The system currently supports two reporting interfaces:
 
@@ -67,13 +67,13 @@ Both interfaces consume standardized data from the centralized Storage Layer.
 
 Data pipelines connect the Source Layer, Storage Layer, and Reporting Layer. They are responsible for extracting data from different sources, applying transformation and validation rules, and loading the processed data into the appropriate destinations.
 
-The pipeline architecture is modular, allowing different data sources and business processes to be handled by dedicated extractor, transformation, and loading components.
+The pipeline architecture separates data processing responsibilities into dedicated **extractor**, **transformation**, and **loading** components, while maintaining a modular design. This allows pipelines to handle different data sources and business logic independently, while making them easier to extend when new data sources or business requirements are introduced.
 
 For more detailed information about the Data Pipeline architecture and implementation, see [`/pipeline/README.md`](./pipeline/README.md).
 
 ## 5. Technologies
 
-The system intentionally uses a relatively simple technology stack to avoid over-engineering. Rather than relying on a large number of high-level data engineering tools, it uses Python, SQL, APIs, and Docker to implement the core data processing and storage workflows.
+The system intentionally uses a relatively simple technology stack to avoid over-engineering. Rather than relying on a large number of high-level data engineering tools, it uses Python, SQL, APIs, and Docker to implement the data processing and storage workflows.
 
 The following table summarizes the main technologies and their roles in the project:
 
@@ -112,7 +112,7 @@ To take over the system, two activities are needed:
 
 #### Step 1: Clone the repository
 
-Clone this repository to your local machine:
+Clone this repository to your machine:
 
 ```bash
 git clone <https://github.com/Namemi2002/docker_dwsystem>
@@ -146,7 +146,7 @@ Open:
 /pipeline/.env.example
 ```
 
-and configure the credentials and identifiers required by the pipeline, including:
+to configure the credentials and identifiers required by the pipeline, including:
 
 - Nhanh.vn Open API credentials
 - POS API credentials
@@ -170,7 +170,7 @@ Go to this [google drive](https://drive.google.com/drive/folders/1fu4rOyCTje5fO-
 
 #### Step 6: Remove `.example` suffixes
 
-After all required example configuration files and folders have been properly configured, remove the `.example` suffix from their names.
+After all five steps above, remove the `.example` suffix from their names.
 
 For example:
 

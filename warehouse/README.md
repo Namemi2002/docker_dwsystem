@@ -28,6 +28,6 @@ The Mây By Mây database only contains a **Data Lake** because its current repo
 
 Its Data Lake serves the same purposes as the Mydu Data Lake: preserving source-level data, providing a backup, supporting debugging, and providing additional data for analysis when required.
 
-Visit `/warehouse/init_create/02_maybymay.sql` for detailed information about table schema of this database.
+A separate Data Warehouse layer for this business is not implemented because it is not currently necessary for that company's reporting requirements.
 
-A separate Data Warehouse layer is not implemented because it is not currently necessary for that company's reporting requirements.
+Visit `/warehouse/init_create/02_maybymay.sql` for detailed information about table schema of this database.
