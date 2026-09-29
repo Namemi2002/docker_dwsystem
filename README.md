@@ -83,10 +83,10 @@ The following table summarizes the main technologies and their roles in the proj
 | **MySQL**                   | Build and operate the Storage Layer                                              |
 | **Docker**                  | Containerize and run the system services                                         |
 | **pandas library**          | Handle DataFrame-based data extraction and transformation processes of pipelines |
-| **requests library**                | Extract data from external APIs                                                  |
+| **requests library**                | Handle data processing that relates to external APIs                        |
 | **PyMySQL library**                 | Enable communication between the data pipelines and the Storage Layer            |
 | **gspread library**                 | Integrate data pipelines with the Google Sheets API                              |
-| **Unidecode library**               | Handle text normalization                   |
+| **Unidecode library**               | Handle text normalization                                                        |
 | **PyYAML library**                  | Read and manage YAML-based pipeline configuration                                |
 | **time library**                    | Handle timing and retry-related processes                                        |
 | **glob library**                    | Locate and process files using file patterns                                     |
@@ -195,7 +195,7 @@ cd <docker_dwsystem>
 docker compose up -d
 ```
 
-After the services have started, the system is ready for operation.
+After the services have initialized successfully, the system is ready for operation.
 
 ### 6.2. Operating
 

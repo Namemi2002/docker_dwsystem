@@ -6,9 +6,11 @@ original_stderr = sys.stderr
 
 
 class LoggerStdout:
+
     def __init__(self, db_connection, runtime):
         self.db_connection = db_connection
         self.runtime = runtime
+
     def write(self, message):
         original_stdout.write(message)
         if message.strip():
@@ -20,7 +22,8 @@ class LoggerStdout:
             cursor = self.db_connection.cursor()
             try:
                 cursor.execute(
-                    'INSERT INTO pipelines_runtime_log (runtime, message, printtype) VALUES (%s,%s,%s)',
+                    'INSERT INTO pipelines_runtime_log '
+                    '(runtime, message, printtype) VALUES (%s,%s,%s)',
                     log_data
                 )
                 self.db_connection.commit()
@@ -33,9 +36,11 @@ class LoggerStdout:
 
 
 class LoggerStderr:
+
     def __init__(self, db_connection, runtime):
         self.db_connection = db_connection
         self.runtime = runtime
+
     def write(self, message):
         original_stderr.write(message)
         if message.strip():
@@ -47,7 +52,8 @@ class LoggerStderr:
             cursor = self.db_connection.cursor()
             try:
                 cursor.execute(
-                    'INSERT INTO pipelines_runtime_log (runtime, message, printtype) VALUES (%s,%s,%s)',
+                    'INSERT INTO pipelines_runtime_log '
+                    '(runtime, message, printtype) VALUES (%s,%s,%s)',
                     log_data
                 )
                 self.db_connection.commit()
@@ -59,5 +65,12 @@ class LoggerStderr:
         original_stderr.flush()
 
 
-def custom_formatwarning(message, category, filename, lineno, file=None, line=None):
+def custom_formatwarning(
+    message,
+    category,
+    filename,
+    lineno,
+    file=None,
+    line=None,
+):
     return f"{message}\n"
