@@ -251,7 +251,7 @@ class NhanhvnOrdersAPIExtractor(Extractor):
         :param params: a dictionary contains 2 information: 'appId' and
             'businessId'. Example: {'appId':123456, 'businessId':20266789}
         :param headers: a dictionary contains 2 information: 'Authorization'
-            and 'Content-Type'. Example: {'Authorization':'a24T86Huy97Gy90Wxbhu9',
+            and 'Content-Type'. Example: {'Authorization':'yourauthorizationcode',
             'Content-Type':'application/json'}
         :param startdate: the created order date to start retrieving data,
             the time part must be '00:00:00'. Example: '2026-04-12 00:00:00'
@@ -1061,7 +1061,7 @@ class TiktokAPIAuthentication(Extractor):
         :param appsecret: app secret of the app
         :param token_dictinfo: a key:value dictionary with value is a token
             and key is the name of that token. Example:
-            {'refresh_token':'Ryeryua1843jcfasd6u934j0'}
+            {'refresh_token':'yourtoken'}
         :param granttype: each type of authentication has different granttype.
             For example: 'authorized_code', 'refresh_token',...
         """

@@ -259,6 +259,7 @@ select n1.orderid,
 from nhanhvnorders n1
 left join nhanhvnorderdetails n2 on n1.orderid = n2.orderid
 where n1.orderstatus not in ('don moi', 'cho khach xac nhan') -- To prevent loading orders with these 2 statuses into data warehouse. Because these orders still can change its productid
+      and n1.ordersource not like '%dai ly %' -- To prevent loading orders from these sources. Because they are seeding sources and make a significant error in reporting metrics
       and n1.dw_updatedat > (select max(updatetime) from dwtable_updatetime_log where dwtable_name = 'nhanhvnorders');
 update temp_nhanhvnorders
 set trackingnumber = concat('TVC_GGSHEET_', orderid)
