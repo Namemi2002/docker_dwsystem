@@ -278,7 +278,7 @@ create table dim_reconciliation (
 
 create table fact_orderdetails (
     orderid varchar(40) not null,
-    productid varchar(40) not null,
+    productid varchar(80) not null,
     parentproductid varchar(40) not null,
     deliveryid varchar(40),
     customer_surrogateid varchar(160) not null,

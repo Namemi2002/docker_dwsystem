@@ -239,6 +239,27 @@ jte:
           - 'tk4'
           - 'jte'
           - 'đơn đi'
+      acc5:
+        name: '208NQ18706'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC5'
+        checkpath_deliveryorders:
+          - 'tk5'
+          - 'jte'
+          - 'đơn đi'
+      acc6:
+        name: '208NQ18703'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC6'
+        checkpath_deliveryorders:
+          - 'tk6'
+          - 'jte'
+          - 'đơn đi'
+      acc7:
+        name: '208NQ18705'
+        deliveryorders: 'JTE_EXCEL_DELIVERYORDERS_ACC7'
+        checkpath_deliveryorders:
+          - 'tk7'
+          - 'jte'
+          - 'đơn đi'
     usecols:
       deliveryorders:
         - 'Mã vận đơn'
@@ -560,6 +581,21 @@ deliveryordershandlingteam:
     source3_5:
       idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
       idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_5'
+    source3_6:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_6'
+    source3_7:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_7'
+    source3_8:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_8'
+    source3_9:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_9'
+    source3_10:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_3'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_3_10'
   datarange: 'B1:O'
   usecols:
     - 'Mã vận đơn'
