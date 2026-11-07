@@ -162,7 +162,7 @@ The required credentials are specific to the data sources used by the system. Co
 
 This step initializes the Data Lake with the historical data accumulated by the system.
 
-Go to this [google drive](https://drive.google.com/drive/folders/1fu4rOyCTje5fO-vtkYgijY3g5zF9z_To), download all files then place them in:
+Go to this [google drive](https://drive.google.com/drive/folders/1fMsZo7R67-kXE15tk4yLAVxewYHNTAs2), download all files then place them in:
 
 ```text
 /warehouse/init_insert/

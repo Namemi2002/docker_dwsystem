@@ -545,6 +545,15 @@ deliveryordershandlingteam:
     source1_7:
       idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
       idsheet:  'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_7'
+    source1_8:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_8'
+    source1_9:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_9'
+    source1_10:
+      idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_1'
+      idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_1_10'
     source2_1:
       idfile: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDFILE_2'
       idsheet: 'GGSHEET_DELIVERYORDERSHANDLINGTEAM_IDSHEET_2_1'
@@ -780,6 +789,7 @@ nhanhvn:
     orders:
       startdate: 'NHANHVN_API_ORDERS_STARTDATE'
       enddate: 'NHANHVN_API_ORDERS_ENDDATE'
+      checkdateinterval: 7776000
       orderfinalcols:
         - 'ID'
         - 'Thoi gian'
@@ -829,6 +839,7 @@ maybymay_pos:
     orders:
       startdate: 'MAYBYMAY_POS_API_ORDERS_STARTDATE'
       enddate: 'MAYBYMAY_POS_API_ORDERS_ENDDATE'
+      checkdateinterval: 7776000
       orderfinalcols:
         - 'ID'
         - 'Thoi gian tao don'

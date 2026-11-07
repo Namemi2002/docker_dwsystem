@@ -1905,6 +1905,31 @@ def run_ghncointransactions_exceletl(
 def run_nhanhvn_apietl(sqlconnection):
     try:
         is_run(os.getenv('RUN_NHANHVN_APIETL'))
+
+        check_starttime = os.getenv(
+            configinfo['nhanhvn']['api']['orders']['startdate'],
+        )
+        check_starttime = datetime.strptime(
+            check_starttime, "%Y-%m-%d %H:%M:%S"
+        )
+        check_starttime = int(check_starttime.timestamp())
+        check_endtime = os.getenv(
+            configinfo['nhanhvn']['api']['orders']['enddate'],
+        )
+        check_endtime = datetime.strptime(
+            check_endtime, "%Y-%m-%d %H:%M:%S"
+        )
+        check_endtime = int(check_endtime.timestamp())
+        check_interval = abs(check_endtime - check_starttime)
+        standardtimeinterval = configinfo['nhanhvn']['api']['orders'][
+            'checkdateinterval'
+        ]
+        if check_interval > standardtimeinterval:
+            raise Exception(
+                f"The time interval between starttime and endtime must "
+                f"be less than {standardtimeinterval} seconds"
+            )
+
         run_sqlscript(
             DELETERECORDS_NHANHVN_QUERYPATH,
             sqlconnection,
@@ -1917,13 +1942,15 @@ def run_nhanhvn_apietl(sqlconnection):
                 ),
             },
         )
+
     except Exception as e:
         return_message(
             'run_nhanhvn_apietl',
             'failed',
-            'the queries to delete records have failed! Stop this pipeline',
+            'the time interval is less than minimum configuration time or the queries to delete records have failed! Stop this pipeline',
             errormessage=e,
         )
+
     else:
         for nhanhvnacc in configinfo['nhanhvn']['account'].values():
             try:
@@ -2156,6 +2183,29 @@ def run_pos_apietl(sqlconnection, config: dict, key: dict):
 
     try:
         is_run(os.getenv('RUN_POS_APIETL'))
+
+        check_starttime = os.getenv(
+            config['startdate'],
+        )
+        check_starttime = datetime.strptime(
+            check_starttime, "%Y-%m-%d %H:%M:%S"
+        )
+        check_starttime = int(check_starttime.timestamp())
+        check_endtime = os.getenv(
+            config['enddate'],
+        )
+        check_endtime = datetime.strptime(
+            check_endtime, "%Y-%m-%d %H:%M:%S"
+        )
+        check_endtime = int(check_endtime.timestamp())
+        check_interval = abs(check_endtime - check_starttime)
+        standardtimeinterval = config['checkdateinterval']
+        if check_interval > standardtimeinterval:
+            raise Exception(
+                f"The time interval between starttime and endtime must "
+                f"be less than {standardtimeinterval} seconds"
+            )
+
         run_sqlscript(
             DELETERECORDS_MAYBYMAY_POSORDERS_QUERYPATH,
             sqlconnection,
@@ -2164,6 +2214,7 @@ def run_pos_apietl(sqlconnection, config: dict, key: dict):
                 'enddate': os.getenv(config['enddate']),
             },
         )
+
     except Exception as e:
         return_message(
             'run_pos_apietl',
@@ -2171,6 +2222,7 @@ def run_pos_apietl(sqlconnection, config: dict, key: dict):
             'the queries to delete reocrds have failed! Stop this pipeline',
             errormessage=e,
         )
+
     else:
         for posacc in key.values():
             try:
