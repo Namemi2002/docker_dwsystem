@@ -180,7 +180,7 @@ COPY init_insert/mbm_deliveryorders.sql /docker-entrypoint-initdb.d/
 COPY init_insert/mbm_metaads.sql /docker-entrypoint-initdb.d/
 COPY init_insert/mbm_pos_orderdetails.sql /docker-entrypoint-initdb.d/
 COPY init_insert/mbm_pos_orders.sql /docker-entrypoint-initdb.d/
-COPY init_insert/mbm_testorders0.sql /docker-entrypoint-initdb.d/
+COPY init_insert/mbm_testorders.sql /docker-entrypoint-initdb.d/
 COPY init_insert/nhanhvnorderdetails.sql /docker-entrypoint-initdb.d/
 COPY init_insert/nhanhvnorders.sql /docker-entrypoint-initdb.d/
 COPY init_insert/returnedorders_scan.sql /docker-entrypoint-initdb.d/
