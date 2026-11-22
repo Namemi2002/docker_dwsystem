@@ -895,7 +895,7 @@ def run_ghn_exceletl(sqlconnection, accounts: dict, uploadquery: str):
                 ghnorders_df = cleanerclasses.cleandatetime_df(
                     ghnorders_df,
                     {
-                        'Ngày tạo đơn': '%d/%m/%Y',
+                        'Thời gian tạo đơn': '%d/%m/%Y %H:%M',
                         'Ngày lấy hàng thành công': '%d/%m/%Y',
                         'Ngày giao hàng thành công': '%d/%m/%Y',
                     },
