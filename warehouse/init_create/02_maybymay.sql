@@ -101,6 +101,12 @@ create table mbm_delivery_reconciliation (
     primary key (delivery_orderid, sessionid)
 );
 
+create table mbm_pos_productstock (
+    productid varchar(40) not null primary key,
+    stock_sellable_quantity int,
+    dw_updatedat datetime not null
+);
+
 create table pipelines_runtime_log (
     logid int auto_increment primary key,
     runtime datetime,

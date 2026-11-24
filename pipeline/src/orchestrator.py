@@ -53,6 +53,12 @@ DELETERECORDS_MAYBYMAY_METAADS_QUERYPATH = (
     / 'maybymay'
     / 'deleterecords_maybymay_metaads.sql'
 )
+DELETERECORDS_MAYBYMAY_POSPRODUCTSTOCK_QUERYPATH = (
+    ROOTDIR
+    / 'sqletlquery'
+    / 'maybymay'
+    / 'deleterecords_maybymay_posproductstock.sql'
+)
 currenttime = datetime.now(timezone(timedelta(hours=7))).replace(tzinfo=None)
 
 
@@ -2219,7 +2225,7 @@ def run_pos_apietl(sqlconnection, config: dict, key: dict):
         return_message(
             'run_pos_apietl',
             'failed',
-            'the queries to delete reocrds have failed! Stop this pipeline',
+            'the queries to delete records have failed! Stop this pipeline',
             errormessage=e,
         )
 
@@ -2336,7 +2342,106 @@ def run_pos_apietl(sqlconnection, config: dict, key: dict):
                     'run_pos_apietl',
                     'failed',
                     (
-                        f"the ETL pipeline for "
+                        f"the POS orders ETL pipeline for "
+                        f"{posacc.get('shopid', 'WRONG AT CONFIG')} "
+                        "shopid has failed. Data have not been "
+                        "loaded to datalake"
+                    ),
+                    errormessage=e,
+                )
+
+
+def run_posproductstock_apietl(sqlconnection, config: dict, key: dict):
+    """
+    :param sqlconnection: the object that was born from the pymysql.connect()
+        method
+    :param config: a dictionary with keys are 'stockfinalcols',
+        'warehouseids',... from pipelineconfig.yaml file
+    :param key: a dictionary with keys are 'acc1', 'acc2',... from key.yaml
+        file
+    :return: None
+    """
+
+    try:
+        is_run(os.getenv('RUN_POSPRODUCTSTOCK_APIETL'))
+        run_sqlscript(
+            DELETERECORDS_MAYBYMAY_POSPRODUCTSTOCK_QUERYPATH,
+            sqlconnection,
+        )
+
+    except Exception as e:
+        return_message(
+            'run_posproductstock_apietl',
+            'failed',
+            'the queries to delete records have failed! Stop this pipeline',
+            errormessage=e,
+        )
+
+    else:
+        for posacc in key.values():
+            try:
+                shopid = os.getenv(posacc['shopid'])
+                apikey = os.getenv(posacc['apikey'])
+
+                # Extract:
+                return_message(
+                    'run_posproductstock_apietl',
+                    'neutral',
+                    'retrieve product stock data from POS API',
+                )
+                pos = extractorclasses.PosGetRecordsByParamsAPIExtractor(
+                    'https://pos.pages.fm/api/v1/shops/real_shop_id/products/'
+                    'variations',
+                    'GET',
+                    apikey,
+                    shopid,
+                    {
+                        'manipulationWarehouse[]': os.getenv(
+                            config['warehouseids']
+                        ),
+                        'warehouse_until': str(currenttime)[0:10] + ' 00:00:00',
+                        'page_size': 50,
+                    },
+                    ['data'],
+                    ['page_number'],
+                    ['total_pages'],
+                )
+                # json_pos is a list of dictionaries, each dictionary
+                # contains stock information of a product variation
+                json_pos = pos.extractdata()
+
+                # Clean:
+                return_message(
+                    'run_posproductstock_apietl',
+                    'neutral',
+                    'clean product stock data from POS API',
+                )
+                cleanpos = cleanerclasses.PosProductstockAPICleaner(
+                    config['stockfinalcols'],
+                    json_pos,
+                )
+                df_pos_stock = cleanpos.cleandata()
+
+                # Upload:
+                return_message(
+                    'run_posproductstock_apietl',
+                    'neutral',
+                    'upload product stock data from POS API to datalake',
+                )
+                loadstock = loaderclasses.DataframeToDatabaseLoader(
+                    df_pos_stock,
+                    sqlconnection,
+                    maybymay_etltolake_query['mbm_pos_productstock'],
+                    currenttime,
+                )
+                loadstock.loaddata()
+
+            except Exception as e:
+                return_message(
+                    'run_posproductstock_apietl',
+                    'failed',
+                    (
+                        f"the POS product stock ETL pipeline for "
                         f"{posacc.get('shopid', 'WRONG AT CONFIG')} "
                         "shopid has failed. Data have not been "
                         "loaded to datalake"

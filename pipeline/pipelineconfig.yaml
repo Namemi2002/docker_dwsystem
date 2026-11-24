@@ -878,6 +878,11 @@ maybymay_pos:
         idsheet: 'GGSHEET_CODEEXPLAIN_POS_MAYBYMAY_IDSHEET'
         orderstatus:
           datarange: 'A3:B'
+    stock:
+      warehouseids: 'MAYBYMAY_POS_API_PRODUCTSTOCK_WAREHOUSEIDS'
+      stockfinalcols:
+        - 'Ma chi tiet san pham'
+        - 'Ton co the ban'
 shopee:
   api:
     header_other_endpoints:

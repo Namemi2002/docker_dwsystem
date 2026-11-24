@@ -50,6 +50,11 @@ orchestrator.run_pos_apietl(
 )
 orchestrator.run_mbmmetaads_apietl(mysql_connection)
 orchestrator.run_mbmordertest_apietl(mysql_connection)
+orchestrator.run_posproductstock_apietl(
+    mysql_connection,
+    orchestrator.configinfo['maybymay_pos']['api']['stock'],
+    orchestrator.configinfo['maybymay_pos']['account']
+)
 orchestrator.updatereport_googlesheet(
     mysql_connection,
     orchestrator.configinfo['maybymay_updatereport_ggsheet'],

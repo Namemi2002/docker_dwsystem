@@ -2851,6 +2851,51 @@ class PosOrdersAPICleaner(Cleaner):
         return df_od
 
 
+# PosProductstockAPICleaner class
+class PosProductstockAPICleaner(Cleaner):
+
+    def __init__(
+        self,
+        final_cols: list[str],
+        list_stock: list[dict]
+    ):
+        self.final_cols = final_cols
+        self.list_stock = list_stock
+
+    def cleandata(self):
+        # Convert the nested list into a dataframe:
+        records = []
+        for i in list_stock:
+            record = []
+            append_iferror(record, i, ['display_id'])
+            append_iferror(record, i, ['remain_quantity'])
+            records.append(record)
+
+        stock_cols = ['Ma chi tiet san pham', 'Ton co the ban']
+        df_stock = pd.DataFrame(data=records, columns=stock_cols)
+
+        # Clean the dataframe:
+        df_stock['Ma chi tiet san pham'] = df_stock[
+            'Ma chi tiet san pham'
+        ].str.replace(r'[\n\t ]', '', regex=True)
+        df_stock['Ma chi tiet san pham'] = df_stock[
+            'Ma chi tiet san pham'
+        ].str.upper()
+
+        # Check whether the 'Ton co the ban' column contains not integers:
+        non_int = df_stock['Ton co the ban'].apply(
+            lambda x: isinstance(x, str)
+        ).any()
+        if non_int == True:
+            warnings.warn(
+                f"The 'Ton co the ban' column contains non-integer values"
+            )
+
+        # Choose only necessary columns:
+        df_stock = df_stock[self.final_cols]
+        return df_stock
+
+
 # MaybymayMetaadsAPICleaner class:
 class MaybymayMetaadsAPICleaner(Cleaner):
 

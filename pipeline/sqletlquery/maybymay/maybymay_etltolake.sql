@@ -98,3 +98,11 @@ on duplicate key update
     mbm_delivery_reconciliation.courier = new.courier,
     mbm_delivery_reconciliation.reconciliation_content = new.reconciliation_content,
     mbm_delivery_reconciliation.dw_updatedat = new.dw_updatedat;
+
+--name: mbm_pos_productstock
+insert into mbm_pos_productstock
+values (%s,%s,%s)
+as new
+on duplicate key update
+    mbm_pos_productstock.stock_sellable_quantity = new.stock_sellable_quantity,
+    mbm_pos_productstock.dw_updatedat = new.dw_updatedat;
